@@ -1,0 +1,207 @@
+# The delay in seconds after a player executes a teleport command until they actually teleport.
+teleport-delay: 10
+
+# The delay in seconds after a block has been placed before it can be protected.
+# This means that if you place a block on your faction land, the block is breakable by anyone for the duration specified.
+# This is good to prevent players (in their own base) from abusing "blocking in" other players (e.g. 2-high roofs).
+block-protection-delay: 30
+
+combat:
+  # Factions that cannot be entered while in combat.
+  faction-blacklist:
+    - SAFEZONE
+
+death:
+  # How many seconds after damaging a player you still get kill credit if they die (only the most recent damager).
+  kill-credit-timer: 30
+  # If this plugin's death messages should be used over the Minecraft default.
+  death-messages: true
+  # Lightning strike effect when faction becomes raidable on death location.
+  raidable-lightning-player: true
+  # Lightning strike effect when faction becomes raidable on faction home (or random faction land if no home set).
+  raidable-lightning-faction: true
+
+  # The factions that dead players cannot leave but can move freely in while waiting out the death timer.
+  # You should make sure that players always spawn within one of these or they will be able to move within the faction
+  # that they spawned in as well.
+  faction-whitelist:
+    - SAFEZONE
+  # Default duration of "death bans" in seconds.
+  death-timer-default: 60
+  # Ranks with their own death durations in seconds. To give someone one of these ranks you have to give them the
+  # permission: gimmehcf.deathtimer.<rank> where "<rank>" is replaced with one of the rank names from below (e.g. 2).
+  # You can add however many custom ranks you want here and the corresponding permission will connect automatically.
+  death-timer-ranks:
+    3: 600
+    2: 300
+    1: 60
+    0: 0
+  # The only commands that you should be allowed to use when dead.
+  # Note: Remember to include all aliases for the commands. All commands that start with one of the commands defined
+  # below are included with it (e.g. "/f" would allow all faction commands).
+  command-whitelist:
+  # Commands that you should not be allowed to use when dead.
+  # Note: the blacklist is only active if it is NOT empty and if the whitelist IS empty.
+  command-blacklist:
+    - /f home
+    - /faction home
+
+# The default world faction where nothing is claimed.
+default-faction: "GRAYZONE"
+# The default faction per world. Any active world's name can be added to the list below.
+# Worlds that are not in the list use the default faction from above.
+default-faction-by-world:
+  world_the_nether: "GRAYZONE"
+  world_the_end: "WARZONE"
+
+flags:
+  # Default behaviour for faction territories.
+  faction-default:
+    # If terrain can be edited by any means (non-members place/break, mob, fire, etc.).
+    GRIEF: false
+    # If blocks can break from explosions (overrides the GRIEF flag).
+    EXPLOSION: false
+    # If non-members can use buttons, levers, chests etc.
+    INTERACT: false
+    # If players can take damage from any source.
+    DAMAGE: true
+    # If players' food level can go down.
+    HUNGER: true
+    # If faction can be over-claimed.
+    CLAIM: false
+    # If mobs can naturally spawn.
+    MOBS: true
+    # If players can teleport to or from here with ender pearls.
+    PEARL: true
+    # If there is a message when you enter the territory.
+    GREETING: true
+
+  # The behaviour of raidable factions. Absent flags here keep their current values.
+  faction-raidable:
+    GRIEF: true
+    EXPLOSION: true
+    INTERACT: true
+    DAMAGE: true
+    MOBS: true
+
+  # Blocks that you should be allowed to interact with even when the INTERACT flag is set to false.
+  interact-whitelist:
+    - ender_chest
+    - crafting_table
+  # The only blocks that you should not be allowed to interact with when the INTERACT flag is set to false.
+  # Note: the blacklist is only active if it is NOT empty and if the whitelist IS empty.
+  interact-blacklist:
+
+  # Worlds that naturally spawn mobs regardless of the MOBS flag value.
+  mobs-excluded-worlds:
+    - world_nether
+    - world_the_end
+
+  greeting:
+    # If the greeting messages should be displayed on the screen (otherwise in the chat).
+    on-screen: true
+    # The duration the greeting messages should stay on the screen in ticks (1 second = 20 ticks).
+    fade-in: 5
+    stay: 10
+    fade-out: 15
+
+# Deaths until raidable.
+faction-dtr:
+  # Starting DTR when creating a new faction (this has nothing to do with the max DTR).
+  starting: 1.1
+  # Base DTR (when calculating the max).
+  base: 0.0
+  # Bonus DTR per player (when calculating the max).
+  bonus-per-player: 1.1
+  # Maximum faction DTR (when calculating the max).
+  max: 5.5
+  # How often (in seconds) the dtr regenerates. For factions with at least one online and alive player.
+  regen-period: 60
+  # Regenerated DTR per regen-period.
+  regen: 0.1
+  # DTR freeze duration in minutes.
+  freeze-duration: 45
+  # World specific dtr loss per death (default = 1)
+  world-death-loss:
+    world_nether: 0.5
+
+# Claimable land represented by chunks (16x16 blocks).
+faction-land:
+  # Base amount of claimable land (max = base + bonus-per-player * members).
+  base: 3
+  # Bonus claimable land per player.
+  bonus-per-player: 1
+  # Max total land for factions with many members. -1 means no limit.
+  max: -1
+  # If land needs to be connected adjacently.
+  adjacent: true
+  # The min amount of land gap between separate factions' claims.
+  faction-gap: 1
+  # If the gap is required against system factions.
+  faction-gap-system: false
+
+# Faction player settings.
+faction-player:
+  # Max amount of players per faction. -1 means infinite.
+  faction-limit: -1
+  # If faction members can damage each other.
+  friendly-fire: false
+  # If allies can damage each other.
+  friendly-fire-ally: false
+  # Allow unclaiming while raidable.
+  unclaim-raidable: false
+  # Allow disbanding raidable factions.
+  disband-raidable: false
+  # Allow joining raidable factions.
+  join-raidable: true
+  # Allow leaving raidable factions.
+  leave-raidable: true
+  # Allow leaving your faction while on your own land.
+  leave-while-home: false
+
+# Faction name validation.
+faction-name:
+  # Min amount of characters.
+  min: 3
+  # Max amount of characters.
+  max: 15
+  # Available characters (regex character classes).
+  characters: "[a-zA-Z0-9]*"
+  # Phrases that faction names cannot start with (case-insensitive)
+  blacklist:
+    - "admin"
+    - "staff"
+
+# Can only be one color code
+faction-colors:
+  you: "&a"
+  ally: "&b"
+  focus: "&d"
+  enemy: "&c"
+  neutral: "&f"
+
+faction-prefix:
+  leader: "**"
+  officer: "*"
+
+# The score to associate the event timers with on the scoreboard. Used for sorting purposes
+# (higher scores are displayed above).
+event-score: -1
+event:
+  # SOTW (Start of the World)
+  sotw:
+    # If PvP is enabled during SOTW
+    pvp: false
+    # If end portals should be disabled during SOTW
+    disable-end-portal: true
+    # If nether portals should be disabled during SOTW
+    disable-nether-portal: false
+    # Factions that players cannot leave but can move freely in during the pre-SOTW lockout period
+    lockout-faction-whitelist:
+      - SAFEZONE
+
+# The period in minutes to save all factions and player stats (e.g. 10 would mean saving every 10 minutes,
+# and 1.5 would mean every 1 minute and 30 seconds). Use a value <= 0 to disable periodic saving (only saves on shutdown).
+auto-save-period: 30
+# If there should be a log message on every auto save.
+auto-save-logging: true

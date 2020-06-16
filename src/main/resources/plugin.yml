@@ -1,0 +1,57 @@
+name: ${project.name}
+version: ${project.version}
+main: ${project.groupId}.${project.artifactId}
+api-version: 1.15
+authors: [Gimme]
+description: ${project.description}
+depend: [GimmeCore, ProtocolLib]
+softdepend: [GimmeBalance]
+
+commands:
+  f:
+    description: All faction commands
+    usage: "Unknown command. Type \"/f help\" for help."
+    permission: gimmehcf.f.*
+
+  fa:
+    description: All faction admin commands
+    usage: "Unknown command. Type \"/fa help\" for help."
+    permission: gimmehcf.fa.*
+
+  event:
+    description: Start events
+    usage: "Unknown command."
+    permission: gimmehcf.event.*
+
+permissions:
+  gimmehcf.*:
+    description: Wildcard permission
+    default: op
+    children:
+      gimmehcf.f.*: true
+      gimmehcf.admin: true
+      gimmehcf.edit: true
+      gimmehcf.deathtimer.0: true
+
+  gimmehcf.f.*:
+    description: Can use f commands
+    default: true
+
+  gimmehcf.admin:
+    description: Has access to all commands
+    children:
+      gimmehcf.fa.*: true
+      gimmehcf.event.*: true
+
+  gimmehcf.fa.*:
+    description: Can use fa commands
+
+  gimmehcf.event.*:
+    description: Can start events
+
+  gimmehcf.edit: {description: Can edit all protected land}
+
+  gimmehcf.deathtimer.0: {description: Gives the rank 0 death duration, meant for skipping the deathtimer}
+  gimmehcf.deathtimer.1: {description: Gives the rank 1 death duration}
+  gimmehcf.deathtimer.2: {description: Gives the rank 2 death duration}
+  gimmehcf.deathtimer.3: {description: Gives the rank 3 death duration}

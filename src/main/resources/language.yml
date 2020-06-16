@@ -1,0 +1,211 @@
+# Settings
+color-code: "&"
+placeholder-code: "%"
+array-split-code: "###"
+
+#  _____________________________________________________________________
+# |                            STRINGS                                 |
+# |____________________________________________________________________|
+announcement:
+  global:
+    raidable: "%faction%&6 IS NOW RAIDABLE!"
+    death:
+      default: "%player%&e died"
+      player-kill: "%player%&e was slain by &r%killer%"
+  faction:
+    joined-your-faction: "%player%&a has joined your faction"
+    left-your-faction: "%player%&c has left your faction"
+    kicked-from-your-faction: "%player%&c was kicked from your faction"
+    ally-request-from: "%faction%&e has requested to become allies &7&o(/f ally %faction%&7&o  to accept)"
+    now-allied-with: "&eYou are now allied with %faction%"
+    no-longer-allied-with: "&eYou are no longer allied with %faction%"
+    faction-focus-set: "%player%&e focused %faction%"
+    faction-focus-removed: "%player%&e unfocused %faction%"
+  personal:
+    greeting: "&eEntering %faction%"
+    invited-to: "&aYou have been invited to %faction% &7&o(/f join)"
+    kicked-from: "&cYou have been kicked from your faction"
+    your-faction-disbanded: "&cYour faction has been disbanded"
+    action-blocked: "&cYou cannot do that"
+
+death-timer:
+  item-name: "&6DEATH TIMER"
+  item-lore: "&eHold this item in your hand to display\n&ethe remaining duration of your death timer."
+  screen-text: "&c%time%"
+  player-list: "%player% &7| &c%time%"
+  respawned: "&aRespawned!"
+  blocked-command: "&cYou are not allowed to used that command while dead"
+
+scoreboard-timer-title:
+  sotw: "&6SOTW ends in: &e"
+  sotw-countdown: "&6SOTW starts in: &e"
+
+teleport:
+  teleporting-title: "&eTeleporting in &6%time%"
+  teleporting-chat: "&eTeleporting in &6%n%s &e(don't move)..."
+  canceled-by-movement: "&cCanceled by movement!"
+  canceled-by-damage: "&cCanceled by damage!"
+
+headers:
+  timers-scoreboard: "&7----------"
+  f-help: "&6_______.[ Faction Commands  | (%page%) ].__________"
+  f-map: "&6___________.[ (%coordinates%) %faction% &6].___________"
+  f-show: "&6________.[ %faction% &6].________"
+  f-list-online: "&6&nFaction(%n%)###&6&nOnline Members###       &6(%page%)"
+  f-list-dtr: "&6&nFaction###&6&nDeaths Till Raidable###       &6(%page%)"
+  f-top-kills: "&6&nFaction###&6&nKills###       &6(%page%)"
+  f-top-kd: "&6&nFaction###&6&nKD (Kills/Deaths)###       &6(%page%)"
+  f-top-players: "&6&Player###&6&nKills/Deaths (KD)###       &6(%page%)"
+  fa-help: "&6______.[ Faction Admin Commands  | (%page%) ].______"
+  fa-flags: "&6_____.[ %faction% &6flags ]._____"
+  event-help: "&6_______.[ Event Commands  | (%page%) ].__________"
+
+command:
+  illegal-characters: "Contains illegal characters"
+  invalid-argument: "Invalid argument"
+  no-permission: "You do not have permission for this command"
+  not-a-color: "Not a color"
+  not-a-number: "Not a number"
+  player-only: "Only players can do this"
+  too-few-arguments: "Not enough input"
+  too-many-arguments: "Too much input"
+  unknown: "Something went wrong"
+  page-oob: "Page must be between 1 and %n%"
+  you-in-combat: "You cannot do that while in combat"
+  they-in-combat: "You cannot do that while they are in combat"
+
+faction:
+  command:
+    not-in-your-faction: "That player is not in your faction: %input%"
+    already-in-faction: "You need to leave your current faction first"
+    faction-not-found: "That faction does not exist: %input%"
+    system-faction-not-found: "That is not a system faction: %input%"
+    current-faction-mismatch: "That is not your current faction: %input%"
+    faction-raidable: "You cannot do that while the faction is raidable"
+    material-not-found: "That material does not exist: %input%"
+  ally-command:
+    description: "Recruit allies"
+    sent-ally-request: "Sent ally request to %faction%!"
+    removed-ally-request: "Removed ally request to %faction%!"
+  focus-command:
+    description: "Set your faction's focus"
+  claim-command:
+    description: "Claim faction land"
+    no-permission: "You cannot claim here"
+    not-adjacent: "You can only claim adjacently"
+    max-reached: "You cannot claim more land"
+    claimed-one: "Claimed one!"
+    overclaimed-one: "Overclaimed %faction%!"
+  unclaim-command:
+    description: "Unclaim faction land"
+    not-adjacent: "Your land would be left non-adjacent"
+    unclaimed-one: "Unclaimed one!"
+    unclaimed-all: "Unclaimed all (%n%)!"
+  create-command:
+    description: "Create a new faction"
+    name-taken: "Name already taken"
+    name-too-short: "The name has to be longer than %n%"
+    name-too-long: "The name has to be shorter than %n%"
+    illegal-phrase: "Contains an illegal phrase: %input%"
+    created-faction: "Created a new faction!"
+  disband-command:
+    description: "Disband your faction"
+    disbanded-faction: "Disbanded %faction%!"
+  help-command:
+    description: "Show a list of all faction commands"
+  home-command:
+    description: "Teleport to the faction home"
+    no-home-set: "No faction home is set"
+  invite-command:
+    description: "Invite players to faction"
+    already-invited: "That player is already invited"
+    invited-player: "Invited %player%!"
+  uninvite-command:
+    description: "Uninvite players from faction"
+    not-invited: "That player was not invited"
+    uninvited-one: "Uninvited %player%!"
+    uninvited-all: "Uninvited all (%n%) players!"
+  join-command:
+    description: "Join a faction that you are invited to"
+    not-invited: "You are not invited to that faction"
+    faction-full: "That faction is full"
+    joined-faction: "Joined %faction%!"
+  leave-command:
+    description: "Leave your current faction"
+    leave-while-home: "You cannot leave while on your faction's land"
+    leader: "You need to promote someone else to leader first or disband the faction"
+    left-faction: "Left %faction%!"
+  kick-command:
+    description: "Kick players from your faction"
+    kicked-player: "Kicked %player%!"
+  promote-command:
+    description: "Promote a member to officer"
+    already-officer: "That player is already an officer"
+    promoted-player: "Promoted %player% to officer!"
+  demote-command:
+    description: "Demote an officer to member"
+    not-officer: "You can only demote officers"
+    demoted-player: "Demoted %player% to member!"
+  owner-command:
+    description: "Transfer ownership of your faction"
+    already-owner: "That player is already the owner"
+    made-owner: "Transferred ownership to %player%!"
+  map-command:
+    description: "Show nearby factions"
+    player-marker: "&b+"
+    faction-markers: "#, &, /, %, ?, \\, X, O"
+  sethome-command:
+    description: "Set the faction home"
+    not-your-land: "You can only set home on your land"
+    home-set: "Faction home set!"
+  show-command:
+    description: "Show faction info"
+  list-command:
+    description: "List online factions"
+  top-command:
+    description: "List top factions"
+
+  admin-claim-command:
+    description: "Claim land for a faction"
+    claimed-one: "Claimed one for %faction%!"
+    claimed-multiple: "Claimed %n% for %faction%!"
+  admin-unclaim-command:
+    description: "Unclaim land for a faction"
+    unclaimed-one: "Unclaimed one for %faction%!"
+    unclaimed-all: "Unclaimed all (%n%) for %faction%!"
+    unclaimed-multiple: "Unclaimed %n% for %faction%!"
+  admin-createsys-command:
+    description: "Create a new system faction"
+  admin-disband-command:
+    description: "Disband a faction"
+  admin-flags-command:
+    description: "Show the flags of a system faction"
+  admin-clearflags-command:
+    description: "Clear all flags to default for a system faction"
+    cleared-flags: "Cleared all flags to default for %faction%"
+  admin-setflag-command:
+    description: "Set flags for a system faction"
+    invalid-flag: "Invalid flag: %input%"
+  admin-freeze-command:
+    description: "Set DTR freeze duration"
+    freeze-set: "%faction% is frozen for &6%time%"
+  admin-setdtr-command:
+    description: "Set DTR for a faction"
+    dtr-set: "%faction%: DTR = %n%"
+  admin-revive-command:
+    description: "Revive a player"
+    player-not-found: "Could not find player: %input%"
+    player-not-dead: "That player is not dead"
+    revived: "Revived %player%!"
+  admin-blockreg-command:
+    description: "Set a breakable regenerating block"
+    blockreg-set: "%faction%: %material% is now breakable and regenerates after %n% seconds"
+    blockreg-reset: "%faction%: %material% is now reset to default"
+  admin-help-command:
+    description: "Show a list of all faction admin commands"
+
+  event-sotw-command:
+    description: "Start the SOTW event"
+    sotw-set: "SOTW starting in %n% minutes!"
+  event-help-command:
+    description: "Show a list of all event commands"
